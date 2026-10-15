@@ -1,3 +1,8 @@
+from langchain_core.messages import AIMessage, HumanMessage
+from langchain_core.output_parsers import StrOutputParser
+from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
+from langchain_openai import ChatOpenAI
+
 from app.core.config import settings
 from app.schemas.chat import ChatResult, ChatTurn
 from app.schemas.product import ProductFilter, ProductHit
@@ -18,19 +23,21 @@ def answer(
     limit: int = 4,
 ) -> ChatResult:
     products = store.search_text(message, limit=limit, filters=filters)
-    llm_name = _ollama_model()
-    if llm_name is None:
-        return ChatResult(answer=_fallback(products), products=products, llm=None)
-    try:
-        text = _ollama_answer(message, history or [], products, llm_name)
-    except Exception as exc:
-        logger_message = f"{exc.__class__.__name__}: {exc}"
+    if not settings.dashscope_api_key:
         return ChatResult(
-            answer=_fallback(products) + f"\n\n模型暂时不可用（{logger_message}）。上面是直接检索到的商品。",
+            answer=_fallback(products) + "\n\n未配置 DASHSCOPE_API_KEY，上面是直接检索到的商品。",
             products=products,
             llm=None,
         )
-    return ChatResult(answer=text, products=products, llm=llm_name)
+    try:
+        text = _qwen_answer(message, history or [], products)
+    except Exception as exc:
+        return ChatResult(
+            answer=_fallback(products) + f"\n\n通义千问暂时不可用（{exc.__class__.__name__}: {exc}）。上面是直接检索到的商品。",
+            products=products,
+            llm=None,
+        )
+    return ChatResult(answer=text, products=products, llm=settings.qwen_model)
 
 
 def _fallback(products: list[ProductHit]) -> str:
@@ -44,36 +51,7 @@ def _fallback(products: list[ProductHit]) -> str:
     return "\n".join(lines)
 
 
-def _ollama_model() -> str | None:
-    import httpx
-
-    try:
-        response = httpx.get(
-            f"{settings.ollama_base_url}/api/tags",
-            timeout=1.5,
-            trust_env=False,
-        )
-        response.raise_for_status()
-    except httpx.HTTPError:
-        return None
-    names = {item.get("name", "") for item in response.json().get("models", [])}
-    wanted = settings.ollama_model
-    if wanted in names or f"{wanted}:latest" in names:
-        return wanted
-    return None
-
-
-def _ollama_answer(
-    message: str,
-    history: list[ChatTurn],
-    products: list[ProductHit],
-    model_name: str,
-) -> str:
-    from langchain_core.messages import AIMessage, HumanMessage
-    from langchain_core.output_parsers import StrOutputParser
-    from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
-    from langchain_ollama import ChatOllama
-
+def _qwen_answer(message: str, history: list[ChatTurn], products: list[ProductHit]) -> str:
     messages = []
     for turn in history:
         if turn.role == "assistant":
@@ -87,10 +65,12 @@ def _ollama_answer(
             ("human", "Question: {question}\n\nProduct context:\n{context}"),
         ]
     )
-    model = ChatOllama(
-        model=model_name,
-        base_url=settings.ollama_base_url,
+    model = ChatOpenAI(
+        model=settings.qwen_model,
+        api_key=settings.dashscope_api_key,
+        base_url=settings.qwen_base_url,
         temperature=0.2,
+        extra_body={"enable_thinking": False},
     )
     chain = prompt | model | StrOutputParser()
     return chain.invoke(

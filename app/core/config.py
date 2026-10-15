@@ -2,6 +2,10 @@ import os
 from dataclasses import dataclass
 from pathlib import Path
 
+from dotenv import load_dotenv
+
+load_dotenv(Path(__file__).resolve().parents[2] / ".env")
+
 
 @dataclass(frozen=True)
 class Settings:
@@ -11,8 +15,12 @@ class Settings:
     data_path: Path = Path(os.getenv("DATA_PATH", "data.json"))
     model_cache: Path = Path(os.getenv("MODEL_CACHE", ".cache/fastembed"))
     image_cache: Path = Path(os.getenv("IMAGE_CACHE", ".cache/images"))
-    ollama_base_url: str = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
-    ollama_model: str = os.getenv("OLLAMA_MODEL", "qwen2.5:7b")
+    dashscope_api_key: str = os.getenv("DASHSCOPE_API_KEY", "")
+    qwen_model: str = os.getenv("QWEN_MODEL", "qwen-plus")
+    qwen_base_url: str = os.getenv(
+        "QWEN_BASE_URL",
+        "https://dashscope.aliyuncs.com/compatible-mode/v1",
+    )
     text_model: str = "BAAI/bge-small-en-v1.5"
     text_dim: int = 384
     clip_text_model: str = "Qdrant/clip-ViT-B-32-text"
