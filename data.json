@@ -1,0 +1,460 @@
+[
+  {
+    "data": {
+      "product": {
+        "reviewRatingStatistics": {
+          "averageRating": 10,
+          "count": 1
+        },
+        "masterData": {
+          "current": {
+            "masterVariant": {
+              "searchable": true,
+              "sku": "site7sku1599831",
+              "images": [
+                {
+                  "url": "https://media.musicarts.com/is/image/MMGS7/M08668000001001-00-2000x2000.jpg",
+                  "label": "largeImageSrc"
+                },
+                {
+                  "url": "https://media.musicarts.com/is/image/MMGS7/M08668000001001-00-720x720.jpg",
+                  "label": "middleImageSrc"
+                },
+                {
+                  "url": "https://media.musicarts.com/is/image/MMGS7/M08668000001001-00-86x86.jpg",
+                  "label": "smallImageSrc"
+                }
+              ],
+              "attributesRaw": [
+                {
+                  "name": "MSRP",
+                  "value": 1819
+                },
+                {
+                  "name": "isSPOAvailable",
+                  "value": true
+                },
+                {
+                  "name": "styleDescription2",
+                  "value": "B-Foot"
+                },
+                {
+                  "name": "styleDescription1",
+                  "value": "Offset G"
+                },
+                {
+                  "name": "isMAAvailable",
+                  "value": true
+                },
+                {
+                  "name": "displayName",
+                  "value": "Giardinelli by Haynes GFL5G Open Hole, Low B, Sterling Silver Head joint Performance Level Flute Offset G B-Foot"
+                },
+                {
+                  "name": "isEducatorAvailable",
+                  "value": true
+                },
+                {
+                  "name": "condition",
+                  "value": "New"
+                },
+                {
+                  "name": "partNumber",
+                  "value": "GFL5G"
+                },
+                {
+                  "name": "prop65",
+                  "value": "WARNING: This product can expose you to chemicals including Lead, which is known to the State of California to cause cancer, and to cause birth defects or other reproductive harm. For more information go to www.P65Warnings.ca.gov."
+                },
+                {
+                  "name": "enterpriseSkuId",
+                  "value": "1599831"
+                },
+                {
+                  "name": "upcCode",
+                  "value": "846940010477"
+                },
+                {
+                  "name": "productDisplayName",
+                  "value": "Giardinelli by Haynes GFL5G Open Hole, Low B, Sterling Silver Head joint Performance Level Flute"
+                },
+                {
+                  "name": "productPriceVisibility",
+                  "value": 1
+                },
+                {
+                  "name": "enterpriseProductId",
+                  "value": "MAIN0531856"
+                },
+                {
+                  "name": "isDropShipItem",
+                  "value": false
+                },
+                {
+                  "name": "sticker",
+                  "value": "15% off orders $299+ w/code UPGRADE26"
+                },
+                {
+                  "name": "skuUrl",
+                  "value": "/giardinelli-giardinelli-by-haynes-gfl5g-open-hole-low-b-sterling-silver-head-joint-performance-level-flute-main0531856?variantid=1599831"
+                },
+                {
+                  "name": "inventoryStatus",
+                  "value": "15% off orders $299+ w/code UPGRADE26"
+                },
+                {
+                  "name": "title",
+                  "value": "Giardinelli Giardinelli by Haynes GFL5G Open Hole, Low B, Sterling Silver Head joint Performance Level Flute Offset G B-Foot"
+                },
+                {
+                  "name": "itemType",
+                  "value": "New"
+                },
+                {
+                  "name": "defaultLessonsStoreId",
+                  "value": "463"
+                },
+                {
+                  "name": "similarItemsLink",
+                  "value": "[{\"title\":\"See All Giardinelli Intermediate Flutes\",\"link\":\"/intermediate-flutes/brand/giardinelli\"}]"
+                },
+                {
+                  "name": "promoIcons",
+                  "value": "[{\"className\":\"30dReturn\",\"linkText\":\"30 Day Returns\",\"linkUrl\":\"/cms/faq/returns-exchanges\"}]"
+                },
+                {
+                  "name": "otherConditionItemsInfo",
+                  "value": "{}"
+                },
+                {
+                  "name": "giftItems",
+                  "value": "[]"
+                },
+                {
+                  "name": "rebates",
+                  "value": "[]"
+                },
+                {
+                  "name": "priceTypeInfo",
+                  "value": "{\"unavailableProduct\":false,\"salePrice\":\"1599.000000\"}"
+                },
+                {
+                  "name": "lessonInfo",
+                  "value": "[]"
+                },
+                {
+                  "name": "isRestricted",
+                  "value": false
+                },
+                {
+                  "name": "storeAndDelivery",
+                  "value": "{\"shipToStore\":null,\"twoDayShippingSourceStatus\":\"MFI=0\",\"oversized\":false}"
+                },
+                {
+                  "name": "productImages",
+                  "value": "{\"largeImageSrc\":\"https://media.musicarts.com/is/image/MMGS7/M08668000001001-00-2000x2000.jpg\",\"middleImageSrc\":\"https://media.musicarts.com/is/image/MMGS7/M08668000001001-00-720x720.jpg\",\"smallImageSrc\":\"https://media.musicarts.com/is/image/MMGS7/M08668000001001-00-86x86.jpg\",\"imageId\":\"M08668000001001\"}"
+                },
+                {
+                  "name": "shipMessageDetails",
+                  "value": []
+                },
+                {
+                  "name": "inventoryCTADetail",
+                  "value": "{\"emailTextTo\":null,\"emailTextBack\":null,\"invDetailMessage\":\"Most ground orders placed before 3pm ET ship same\u2011day and arrive in 2-5 business days\",\"avlStatus\":\"in_stock\",\"avlText\":\"IN STOCK & READY TO SHIP\",\"inventoryStatus\":\"1000\",\"availableDate\":1793952000000,\"invMsgAvailability\":\"In Stock & Ready for Delivery\",\"invMessageKey\":\"MSG_KEY_INV_MSG_REGULAR_INSTOCK\",\"invDetailMessageKey\":\"MSG_KEY_DETAIL_MSG_REGULAR_INSTOCK\",\"CTAButtons\":[{\"type\":\"primary\",\"quantity\":true,\"text\":\"Add to Cart\"}]}"
+                },
+                {
+                  "name": "pdpDetail",
+                  "value": "{\"productName\":\"Giardinelli Giardinelli by Haynes GFL5G Open Hole, Low B, Sterling Silver Head joint Performance Level Flute\",\"expertTotalReviews\":\"\",\"id\":\"1599831\",\"postId\":\"\",\"upcCode\":\"\",\"overallRating\":\"10\",\"ratingCount\":\"1\",\"siteId\":\"7\",\"title\":\"Giardinelli Giardinelli by Haynes GFL5G Open Hole, Low B, Sterling Silver Head joint Performance Level Flute Offset G B-Foot\",\"sticker\":[{\"stickerName\":\"15% off orders $299+ w/code UPGRADE26\",\"position\":\"top-left\",\"stickerLink\":\"https://www.musicarts.com/15-off-orders-299\",\"stickerClass\":null}],\"stickerLinkTarget\":null,\"skuUrl\":\"/giardinelli-giardinelli-by-haynes-gfl5g-open-hole-low-b-sterling-silver-head-joint-performance-level-flute-main0531856?variantid=1599831\",\"isSubscription\":false,\"unavailablePDP\":false,\"alertType\":\"InStock\",\"availableDate\":1793952000000,\"commerceType\":\"New\",\"productId\":\"site7prodMAIN0531856\",\"categoryId\":\"site7KCCB\",\"categoryName\":\"Intermediate Flutes\",\"catalogRefId\":\"site7sku1599831\",\"brandName\":\"Giardinelli\",\"brandImgLink\":\"/giardinelli\",\"defaultLessonsStoreId\":\"463\"}"
+                },
+                {
+                  "name": "powerReview",
+                  "value": "{\"api_key\":\"afe55785-7ee9-4be2-8fb2-1d919b72c0ef\",\"locale\":\"en_US\",\"merchant_group_id\":\"48499\",\"merchant_id\":\"502065\",\"product_id\":\"site7prodMAIN0531856\",\"page_id\":\"MAIN0531856\",\"review_wrapper_url\":\"https://dev-www.wwbw.com/write-review/pdp?pr_page_id=___PAGE_ID___\",\"ENABLE_CONTENT_COLLECTION_MODAL\":\"false\",\"REVIEW_DISPLAY_LIST_TYPE\":\"CONDENSED\",\"REVIEW_DISPLAY_PAGINATION_TYPE\":\"VERTICAL\",\"style_sheet\":\"//static.music123.com/cmn/brand/gc/productionCss/pr_override_display4.css?vId=MA.ATG.2026.08.R2.a&cb=3\",\"components\":{\"ReviewDisplay\":\"pr-reviewdisplay\",\"QuestionSnippet\":\"pr-questionSnippet\",\"QuestionDisplay\":\"pr-questionDisplay\"}}"
+                },
+                {
+                  "name": "productBreadcrumb",
+                  "value": [
+                    {
+                      "seoUrl": "/",
+                      "displayName": "Home"
+                    },
+                    {
+                      "seoUrl": "/woodwinds",
+                      "displayName": "Woodwinds"
+                    },
+                    {
+                      "seoUrl": "/flutes-piccolos",
+                      "displayName": "Flutes & Piccolos"
+                    },
+                    {
+                      "seoUrl": "/flutes",
+                      "displayName": "Flutes"
+                    },
+                    {
+                      "seoUrl": "/intermediate-flutes",
+                      "displayName": "Intermediate Flutes"
+                    }
+                  ]
+                },
+                {
+                  "name": "richRelevanceInfo",
+                  "value": "{\"apiClientKey\":\"9e6b7aa0cfe080d7\",\"apiKey\":\"9ed4604c5beebd43\",\"rid\":\"US\"}"
+                },
+                {
+                  "name": "repositoryStockInfo",
+                  "value": {
+                    "global": 1
+                  }
+                },
+                {
+                  "name": "inventoryDependent",
+                  "value": false
+                },
+                {
+                  "name": "backorderSupport",
+                  "value": false
+                },
+                {
+                  "name": "repositoryBackorderInfo",
+                  "value": {
+                    "backorder": 5
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "data": {
+      "product": {
+        "reviewRatingStatistics": {
+          "averageRating": 0,
+          "count": 0
+        },
+        "masterData": {
+          "current": {
+            "masterVariant": {
+              "searchable": true,
+              "sku": "site7sku1497780",
+              "images": [
+                {
+                  "url": "https://media.musicarts.com/is/image/MMGS7/L53074000001000-00-2000x2000.jpg",
+                  "label": "largeImageSrc"
+                },
+                {
+                  "url": "https://media.musicarts.com/is/image/MMGS7/L53074000001000-00-720x720.jpg",
+                  "label": "middleImageSrc"
+                },
+                {
+                  "url": "https://media.musicarts.com/is/image/MMGS7/L53074000001000-00-86x86.jpg",
+                  "label": "smallImageSrc"
+                }
+              ],
+              "attributesRaw": [
+                {
+                  "name": "MSRP",
+                  "value": 2599
+                },
+                {
+                  "name": "isSPOAvailable",
+                  "value": true
+                },
+                {
+                  "name": "styleDescription1",
+                  "value": "Grenadilla Wood Lip-Plate and Riser"
+                },
+                {
+                  "name": "isMAAvailable",
+                  "value": true
+                },
+                {
+                  "name": "displayName",
+                  "value": "Series 09 Flute, Silver-Plated Body, Solid Silverlight Headjoint (.835) Grenadilla Wood Lip-Plate and Riser"
+                },
+                {
+                  "name": "isEducatorAvailable",
+                  "value": true
+                },
+                {
+                  "name": "condition",
+                  "value": "New"
+                },
+                {
+                  "name": "partNumber",
+                  "value": "TFL-09L-GRB"
+                },
+                {
+                  "name": "enterpriseSkuId",
+                  "value": "1497780"
+                },
+                {
+                  "name": "upcCode",
+                  "value": "2100000257034"
+                },
+                {
+                  "name": "heading",
+                  "value": "Premium yet accessible, the flute for budding virtuosos."
+                },
+                {
+                  "name": "productSpecifications",
+                  "value": "<ul><li>.835&quot; solid silver headjoint with either a grenadilla lip-plate and riser, .925&quot; solid silver lip-plate and riser, or a .925&quot; lip-plate with a 14k solid gold riser<\/li><li>Silver-plated body and mechanism<\/li><li>B foot<\/li><li>French-pointed key arms<\/li><li>Open hole keys<\/li><li>Offset G key<\/li><li>Split E mechanism<\/li><li>French style wooden case with cover<\/li><li>Comes complete with Tomasi polishing cloth and metal hole inserts<\/li><\/ul>"
+                },
+                {
+                  "name": "productLongDescription",
+                  "value": "The Tomasi Series 09 Flute combines high-quality craftsmanship with an affordable price, designed for developing players passionate about their art. Featuring a genuine Silver Light (.835) sterling silver headjoint, the Series 09 produces an open, centered tone perfect for solo and ensemble playing. Choose between three distinct lip plate options - sterling silver, rich grenadilla wood or lustrous 14K gold - to customize the flute's appearance and subtle tonal nuances.<br /><br />\n\n<h5>Silver Light Headjoint Unlocks the Flute's Expressive Potential<\/h5>\nThe Silver Light (.835) headjoint is precision crafted from sterling silver, known for producing a focused, resonant tone. Its tapered profile and medium-wide embouchure hole offer nimble response and tonal control across the range of the flute. The headjoint's sterling silver composition helps produce the flute's characteristic bright, pure timbre, ideal for solo and small ensemble work.<br /><br />\n\n<h5>Three Distinct Lip Plates Provide Unique Tonal Colors<\/h5>\nChoose between a sterling silver, grenadilla wood or 14K gold lip plate to subtly influence the flute's tone and customize its appearance. The sterling silver lip plate produces a bright, centered tone. Grenadilla wood adds warmth and depth. 14K gold contributes a touch of brilliance and richness to the sound. Each lip plate is made to exacting standards to seamlessly pair with the Silver Light headjoint.\n\n<h5>Ergonomic Mechanism Promotes Fluid Fingering<\/h5>\nLow-profile pointed key arms, offset G key and sculpted keys are designed for comfortable, intuitive fingering. The pointed key arms have a narrow profile, reducing the reach between keys. The offset G key positions the G key slightly forward, allowing for a more natural hand position. Well-balanced, sculpted keys with teardrop-shaped paddles rest comfortably under the fingers, promoting an effortless playing experience for budding flutists. \n\n<h5>Premium Accessories Complete the Package<\/h5>\nThe Series 09 Flute includes a plush-lined lightweight case to protect the flute during travel and storage. Additional accessories like a cleaning rod, cleaning cloth and cork grease ensure proper instrument care and maintenance. With premium craftsmanship and an array of professional features, the Tomasi Series 09 Flute is an outstanding choice for the developing flutist.\n\n Order the Tomasi Series 09 Flute today."
+                },
+                {
+                  "name": "productDisplayName",
+                  "value": "Series 09 Flute, Silver-Plated Body, Solid Silverlight Headjoint (.835)"
+                },
+                {
+                  "name": "productPriceVisibility",
+                  "value": 1
+                },
+                {
+                  "name": "enterpriseProductId",
+                  "value": "MAIN0453472"
+                },
+                {
+                  "name": "isDropShipItem",
+                  "value": false
+                },
+                {
+                  "name": "skuUrl",
+                  "value": "/tomasi-series-09-flute-silver-plated-body-solid-silverlight-headjoint-835-main0453472?variantid=1497780"
+                },
+                {
+                  "name": "title",
+                  "value": "Tomasi Series 09 Flute, Silver-Plated Body, Solid Silverlight Headjoint (.835) Grenadilla Wood Lip-Plate and Riser"
+                },
+                {
+                  "name": "itemType",
+                  "value": "New"
+                },
+                {
+                  "name": "defaultLessonsStoreId",
+                  "value": "463"
+                },
+                {
+                  "name": "similarItemsLink",
+                  "value": "[{\"title\":\"See All Tomasi Intermediate Flutes\",\"link\":\"/intermediate-flutes/brand/tomasi\"}]"
+                },
+                {
+                  "name": "promoIcons",
+                  "value": "[{\"className\":\"30dReturn\",\"linkText\":\"30 Day Returns\",\"linkUrl\":\"/cms/faq/returns-exchanges\"}]"
+                },
+                {
+                  "name": "otherConditionItemsInfo",
+                  "value": "{}"
+                },
+                {
+                  "name": "giftItems",
+                  "value": "[]"
+                },
+                {
+                  "name": "rebates",
+                  "value": "[]"
+                },
+                {
+                  "name": "priceTypeInfo",
+                  "value": "{\"unavailableProduct\":false,\"salePrice\":\"2059.000000\"}"
+                },
+                {
+                  "name": "lessonInfo",
+                  "value": "[]"
+                },
+                {
+                  "name": "isRestricted",
+                  "value": false
+                },
+                {
+                  "name": "storeAndDelivery",
+                  "value": "{\"shipToStore\":null,\"twoDayShippingSourceStatus\":\"MFI=0\",\"oversized\":false}"
+                },
+                {
+                  "name": "productImages",
+                  "value": "{\"largeImageSrc\":\"https://media.musicarts.com/is/image/MMGS7/L53074000001000-00-2000x2000.jpg\",\"middleImageSrc\":\"https://media.musicarts.com/is/image/MMGS7/L53074000001000-00-720x720.jpg\",\"smallImageSrc\":\"https://media.musicarts.com/is/image/MMGS7/L53074000001000-00-86x86.jpg\",\"imageId\":\"L53074000001000\"}"
+                },
+                {
+                  "name": "shipMessageDetails",
+                  "value": []
+                },
+                {
+                  "name": "inventoryCTADetail",
+                  "value": "{\"emailTextTo\":null,\"emailTextBack\":null,\"invDetailMessage\":\"Most ground orders placed before 3pm ET ship same\u2011day and arrive in 2-5 business days\",\"avlStatus\":\"in_stock\",\"avlText\":\"IN STOCK & READY TO SHIP\",\"inventoryStatus\":\"1000\",\"availableDate\":null,\"invMsgAvailability\":\"In Stock & Ready for Delivery\",\"invMessageKey\":\"MSG_KEY_INV_MSG_REGULAR_INSTOCK\",\"invDetailMessageKey\":\"MSG_KEY_DETAIL_MSG_REGULAR_INSTOCK\",\"CTAButtons\":[{\"type\":\"primary\",\"quantity\":true,\"text\":\"Add to Cart\"}]}"
+                },
+                {
+                  "name": "pdpDetail",
+                  "value": "{\"productName\":\"Tomasi Series 09 Flute, Silver-Plated Body, Solid Silverlight Headjoint (.835)\",\"expertTotalReviews\":\"\",\"id\":\"1497780\",\"postId\":\"\",\"upcCode\":\"\",\"overallRating\":\"\",\"ratingCount\":\"\",\"siteId\":\"7\",\"title\":\"Tomasi Series 09 Flute, Silver-Plated Body, Solid Silverlight Headjoint (.835) Grenadilla Wood Lip-Plate and Riser\",\"skuUrl\":\"/tomasi-series-09-flute-silver-plated-body-solid-silverlight-headjoint-835-main0453472?variantid=1497780\",\"isSubscription\":false,\"featuresDetails\":\"The Tomasi Series 09 Flute combines high-quality craftsmanship with an affordable price, designed for developing players passionate about their art. Featuring a genuine Silver Light (.835) sterling silver headjoint, the Series 09 produces an open, centered tone perfect for solo and ensemble playing. Choose between three distinct lip plate options -\",\"unavailablePDP\":false,\"alertType\":\"InStock\",\"availableDate\":1751266800000,\"commerceType\":\"New\",\"productId\":\"site7prodMAIN0453472\",\"categoryId\":\"site7KCCB\",\"categoryName\":\"Intermediate Flutes\",\"catalogRefId\":\"site7sku1497780\",\"brandName\":\"Tomasi\",\"brandImgSrc\":\"static.music123.com/derivates/6686_Tomasi_logo_2019_1_2019-06-20_125836.jpg\",\"brandImgLink\":\"/tomasi\",\"defaultLessonsStoreId\":\"463\"}"
+                },
+                {
+                  "name": "productVideos",
+                  "value": "[{\"type\":\"YouTubeVideo\",\"title\":\"Music & Arts: How to Assemble & Disassemble Your Flute\",\"description\":\"Music & Arts: How to Assemble & Disassemble Your Flute\",\"imageSrc\":\"//i.ytimg.com/vi/XNCg6lFBvjo/mqdefault.jpg\",\"videoSrc\":\"//www.youtube.com/embed/XNCg6lFBvjo\",\"metadata\":\"{\\\"embedUrl\\\":\\\"https://www.youtube.com/embed/XNCg6lFBvjo\\\",\\\"duration\\\":\\\"PT1M30S\\\",\\\"uploadDate\\\":\\\"2020-10-16T19:33:15Z\\\",\\\"@type\\\":\\\"VideoObject\\\",\\\"name\\\":\\\"How to Assemble & Disassemble Your Flute\\\",\\\"description\\\":\\\"Sarah shows us how to assemble and disassemble your flute!\\\\n\\\\nHOW TO CLEAN YOUR FLUTE: https://youtu.be/8Ya3lfZC1B4\\\\n\\\\nBUY: https://www.musicarts.com/flutes-piccolos\\\\n\\\\nRENT WITH US: https://www.musicarts.com/rentals\\\\n\\\\nONLINE LESSONS: https://www.musicarts.com/cms/lessons\\\",\\\"@context\\\":\\\"https://schema.org\\\",\\\"thumbnailUrl\\\":\\\"https://i.ytimg.com/vi/XNCg6lFBvjo/default.jpg\\\"}\"}]"
+                },
+                {
+                  "name": "powerReview",
+                  "value": "{\"api_key\":\"afe55785-7ee9-4be2-8fb2-1d919b72c0ef\",\"locale\":\"en_US\",\"merchant_group_id\":\"48499\",\"merchant_id\":\"502065\",\"product_id\":\"site7prodMAIN0453472\",\"page_id\":\"MAIN0453472\",\"review_wrapper_url\":\"https://dev-www.wwbw.com/write-review/pdp?pr_page_id=___PAGE_ID___\",\"ENABLE_CONTENT_COLLECTION_MODAL\":\"false\",\"REVIEW_DISPLAY_LIST_TYPE\":\"CONDENSED\",\"REVIEW_DISPLAY_PAGINATION_TYPE\":\"VERTICAL\",\"style_sheet\":\"//static.music123.com/cmn/brand/gc/productionCss/pr_override_display4.css?vId=MA.ATG.2026.08.R2.a&cb=3\",\"components\":{\"ReviewDisplay\":\"pr-reviewdisplay\",\"QuestionSnippet\":\"pr-questionSnippet\",\"QuestionDisplay\":\"pr-questionDisplay\"}}"
+                },
+                {
+                  "name": "productBreadcrumb",
+                  "value": [
+                    {
+                      "seoUrl": "/",
+                      "displayName": "Home"
+                    },
+                    {
+                      "seoUrl": "/woodwinds",
+                      "displayName": "Woodwinds"
+                    },
+                    {
+                      "seoUrl": "/flutes-piccolos",
+                      "displayName": "Flutes & Piccolos"
+                    },
+                    {
+                      "seoUrl": "/flutes",
+                      "displayName": "Flutes"
+                    },
+                    {
+                      "seoUrl": "/intermediate-flutes",
+                      "displayName": "Intermediate Flutes"
+                    }
+                  ]
+                },
+                {
+                  "name": "richRelevanceInfo",
+                  "value": "{\"apiClientKey\":\"9e6b7aa0cfe080d7\",\"apiKey\":\"9ed4604c5beebd43\",\"rid\":\"US\"}"
+                },
+                {
+                  "name": "pdpStyleSelector",
+                  "value": "{\"type\":\"label\",\"showPrice\":true,\"selectedStyle\":\"Grenadilla Wood Lip-Plate and Riser\",\"styleSelectorArr\":[{\"id\":\"site7sku1497780\",\"salePrice\":\"2059.000000\",\"wasPrice\":\"2059.000000\",\"link\":\"/tomasi-series-09-flute-silver-plated-body-solid-silverlight-headjoint-835-main0453472?variantid=1497780\",\"styleDescription\":\"Grenadilla Wood Lip-Plate and Riser\",\"isSelected\":true,\"availableDate\":1751266800000,\"skuCondition\":\"0\",\"status\":\"InStock\"},{\"id\":\"site7sku1497778\",\"salePrice\":\"2199.000000\",\"wasPrice\":\"2199.000000\",\"link\":\"/tomasi-series-09-flute-silver-plated-body-solid-silverlight-headjoint-835-main0453472?variantid=1497778\",\"styleDescription\":\"Solid .925 Silver Lip-Plate and Riser\",\"isSelected\":false,\"availableDate\":1792002961000,\"skuCondition\":\"0\",\"status\":\"BackOrder\"}]}"
+                },
+                {
+                  "name": "repositoryStockInfo",
+                  "value": {
+                    "global": 2
+                  }
+                },
+                {
+                  "name": "inventoryDependent",
+                  "value": false
+                },
+                {
+                  "name": "backorderSupport",
+                  "value": false
+                },
+                {
+                  "name": "repositoryBackorderInfo",
+                  "value": {
+                    "backorder": 0
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+]
