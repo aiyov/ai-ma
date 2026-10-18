@@ -50,6 +50,27 @@ h2 {
 
 .status { color: #5e564c; font-size: 14px; }
 
+.top-side {
+  display: flex;
+  align-items: end;
+  gap: 16px;
+}
+
+.api-key {
+  display: grid;
+  gap: 4px;
+  color: #5e564c;
+  font-size: 12px;
+}
+
+.api-key input {
+  width: 160px;
+  border: 1px solid #1d1914;
+  background: transparent;
+  padding: 6px 8px;
+  font: inherit;
+}
+
 main {
   display: grid;
   gap: 28px;
@@ -195,6 +216,22 @@ body[data-mode="image"] .drop { display: flex; }
 
 .bubble.assistant { background: #f3eee6; }
 
+.chunks {
+  display: grid;
+  gap: 6px;
+  max-width: 78%;
+}
+
+.chunks details {
+  background: #fffdf9;
+  border: 1px solid #d9d0c4;
+  padding: 8px 10px;
+  font-size: 13px;
+}
+
+.chunks summary { cursor: pointer; }
+.chunks p { margin: 8px 0 0; color: #5e564c; white-space: pre-wrap; }
+
 .chat-form { display: flex; gap: 8px; }
 .chat-form input { margin: 0; }
 .chat-form button { padding: 0 16px; }
@@ -202,7 +239,7 @@ body[data-mode="image"] .drop { display: flex; }
 .error { color: #8a3d22; margin-top: 8px; }
 
 @media (max-width: 720px) {
-  .top, .filters, .chat-form { display: grid; }
+  .top, .top-side, .filters, .chat-form { display: grid; }
   .filters { grid-template-columns: 1fr; }
   h1 { font-size: 32px; }
 }

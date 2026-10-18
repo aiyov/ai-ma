@@ -12,6 +12,12 @@ const results = document.querySelector("#results");
 const resultMeta = document.querySelector("#result-meta");
 const thread = document.querySelector("#thread");
 const status = document.querySelector("#status");
+const apiKeyInput = document.querySelector("#api-key");
+
+apiKeyInput.value = sessionStorage.getItem("apiKey") || "";
+apiKeyInput.addEventListener("change", () => {
+  sessionStorage.setItem("apiKey", apiKeyInput.value.trim());
+});
 
 document.querySelectorAll(".mode").forEach((button) => {
   button.addEventListener("click", () => setMode(button.dataset.mode));
@@ -128,6 +134,7 @@ async function sendChat() {
     state.history.push({ role: "user", content: message });
     state.history.push({ role: "assistant", content: result.answer });
     appendBubble("assistant", result.answer);
+    appendChunks(result.chunks);
     if (result.products.length) {
       renderProducts(result.products);
       resultMeta.textContent = `对话匹配 ${result.products.length} 件商品`;
@@ -185,6 +192,23 @@ function renderProducts(products) {
   }
 }
 
+function appendChunks(chunks) {
+  if (!chunks || !chunks.length) return;
+  const box = document.createElement("div");
+  box.className = "chunks";
+  for (const chunk of chunks) {
+    const item = document.createElement("details");
+    const summary = document.createElement("summary");
+    summary.textContent = `${chunk.title} · 第 ${chunk.chunk_index + 1} 段`;
+    const text = document.createElement("p");
+    text.textContent = chunk.text;
+    item.append(summary, text);
+    box.append(item);
+  }
+  thread.append(box);
+  thread.scrollTop = thread.scrollHeight;
+}
+
 function appendBubble(role, text) {
   const hint = thread.querySelector(".hint");
   if (hint) hint.remove();
@@ -205,8 +229,11 @@ function formatPrice(value) {
   return `$${Number(value).toLocaleString("en-US", { maximumFractionDigits: 0 })}`;
 }
 
-async function request(path, options) {
-  const response = await fetch(path, options);
+async function request(path, options = {}) {
+  const headers = new Headers(options.headers || {});
+  const key = apiKeyInput.value.trim();
+  if (key) headers.set("X-API-Key", key);
+  const response = await fetch(path, { ...options, headers });
   if (!response.ok) {
     let detail = response.statusText;
     try {

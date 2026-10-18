@@ -3,11 +3,11 @@ from tempfile import NamedTemporaryFile
 
 from fastapi import APIRouter, Depends, File, Form, HTTPException, UploadFile
 
-from app.api.deps import get_store
+from app.api.deps import get_store, require_api_key
 from app.schemas.product import ProductFilter, SearchRequest, SearchResponse
 from app.services.store import ProductStore
 
-router = APIRouter(prefix="/search", tags=["search"])
+router = APIRouter(prefix="/search", tags=["search"], dependencies=[Depends(require_api_key)])
 
 
 @router.post("", response_model=SearchResponse)

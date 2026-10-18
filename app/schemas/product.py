@@ -44,6 +44,14 @@ class SearchResponse(BaseModel):
     products: list[ProductHit]
 
 
+class ImageFailure(BaseModel):
+    sku: str
+    url: str = ""
+    reason: str
+
+
 class ImportResponse(BaseModel):
-    upserted: int
+    products: int
+    chunks: int
     count: int
+    failed_images: list[ImageFailure] = Field(default_factory=list)

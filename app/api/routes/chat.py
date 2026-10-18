@@ -1,11 +1,11 @@
 from fastapi import APIRouter, Depends
 
-from app.api.deps import get_store
+from app.api.deps import get_store, require_api_key
 from app.schemas.chat import ChatRequest, ChatResult
 from app.services.chat import answer
 from app.services.store import ProductStore
 
-router = APIRouter(tags=["chat"])
+router = APIRouter(tags=["chat"], dependencies=[Depends(require_api_key)])
 
 
 @router.post("/chat", response_model=ChatResult)

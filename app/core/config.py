@@ -15,8 +15,11 @@ class Settings:
     data_path: Path = Path(os.getenv("DATA_PATH", "data.json"))
     model_cache: Path = Path(os.getenv("MODEL_CACHE", ".cache/fastembed"))
     image_cache: Path = Path(os.getenv("IMAGE_CACHE", ".cache/images"))
+    api_key: str = os.getenv("API_KEY", "")
     dashscope_api_key: str = os.getenv("DASHSCOPE_API_KEY", "")
     qwen_model: str = os.getenv("QWEN_MODEL", "qwen-plus")
+    qwen_timeout: float = float(os.getenv("QWEN_TIMEOUT", "20"))
+    qwen_max_retries: int = int(os.getenv("QWEN_MAX_RETRIES", "2"))
     qwen_base_url: str = os.getenv(
         "QWEN_BASE_URL",
         "https://dashscope.aliyuncs.com/compatible-mode/v1",
@@ -26,6 +29,8 @@ class Settings:
     clip_text_model: str = "Qdrant/clip-ViT-B-32-text"
     image_model: str = "Qdrant/clip-ViT-B-32-vision"
     image_dim: int = 512
+    chunk_size: int = int(os.getenv("CHUNK_SIZE", "800"))
+    chunk_overlap: int = int(os.getenv("CHUNK_OVERLAP", "120"))
 
 
 settings = Settings()

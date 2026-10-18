@@ -1,61 +1,80 @@
 import os
 from pathlib import Path
 
+from langchain_core.embeddings import Embeddings
+
 from app.core.config import settings
 
 os.environ.setdefault("HF_HUB_DISABLE_TELEMETRY", "1")
 
 
-class Embedder:
-    """Lazy local models. Text search and image search do not share a vector space."""
+class FastEmbedTextEmbeddings(Embeddings):
+    """BGE text embeddings. Queries use the model's query prefix."""
 
     def __init__(self) -> None:
-        self._text = None
-        self._clip_text = None
-        self._image = None
-        self.cache_dir = settings.model_cache
-        self.cache_dir.mkdir(parents=True, exist_ok=True)
+        self._model = None
 
     def embed_documents(self, texts: list[str]) -> list[list[float]]:
         if not texts:
             return []
-        return [vector.tolist() for vector in self._text_model().embed(texts)]
+        return [vector.tolist() for vector in self._load().embed(texts)]
 
     def embed_query(self, text: str) -> list[float]:
-        return next(iter(self._text_model().query_embed([text]))).tolist()
+        return next(iter(self._load().query_embed([text]))).tolist()
 
-    def embed_visual_query(self, text: str) -> list[float]:
-        return next(iter(self._clip_text_model().embed([text]))).tolist()
-
-    def embed_image(self, path: Path) -> list[float]:
-        return next(iter(self._image_model().embed([str(path)]))).tolist()
-
-    def _text_model(self):
-        if self._text is None:
+    def _load(self):
+        if self._model is None:
             from fastembed import TextEmbedding
 
-            self._text = TextEmbedding(
+            settings.model_cache.mkdir(parents=True, exist_ok=True)
+            self._model = TextEmbedding(
                 model_name=settings.text_model,
-                cache_dir=str(self.cache_dir),
+                cache_dir=str(settings.model_cache),
             )
-        return self._text
+        return self._model
 
-    def _clip_text_model(self):
-        if self._clip_text is None:
+
+class ClipTextEmbeddings(Embeddings):
+    """CLIP text encoder. Its vectors live in the same space as product photos."""
+
+    def __init__(self) -> None:
+        self._model = None
+
+    def embed_documents(self, texts: list[str]) -> list[list[float]]:
+        if not texts:
+            return []
+        return [vector.tolist() for vector in self._load().embed(texts)]
+
+    def embed_query(self, text: str) -> list[float]:
+        return self.embed_documents([text])[0]
+
+    def _load(self):
+        if self._model is None:
             from fastembed import TextEmbedding
 
-            self._clip_text = TextEmbedding(
+            settings.model_cache.mkdir(parents=True, exist_ok=True)
+            self._model = TextEmbedding(
                 model_name=settings.clip_text_model,
-                cache_dir=str(self.cache_dir),
+                cache_dir=str(settings.model_cache),
             )
-        return self._clip_text
+        return self._model
 
-    def _image_model(self):
-        if self._image is None:
-            from fastembed import ImageEmbedding
 
-            self._image = ImageEmbedding(
-                model_name=settings.image_model,
-                cache_dir=str(self.cache_dir),
-            )
-        return self._image
+def embed_image(path: Path) -> list[float]:
+    return next(iter(_image_model().embed([str(path)]))).tolist()
+
+
+_image = None
+
+
+def _image_model():
+    global _image
+    if _image is None:
+        from fastembed import ImageEmbedding
+
+        settings.model_cache.mkdir(parents=True, exist_ok=True)
+        _image = ImageEmbedding(
+            model_name=settings.image_model,
+            cache_dir=str(settings.model_cache),
+        )
+    return _image

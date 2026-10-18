@@ -8,9 +8,18 @@ class ChatTurn(BaseModel):
     content: str
 
 
+class RetrievedChunk(BaseModel):
+    sku: str
+    title: str
+    chunk_index: int = 0
+    score: float | None = None
+    text: str
+
+
 class ChatResult(BaseModel):
     answer: str
     products: list[ProductHit]
+    chunks: list[RetrievedChunk] = Field(default_factory=list)
     llm: str | None = None
 
 
