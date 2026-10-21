@@ -54,14 +54,30 @@ async function boot() {
   }
 }
 
+const modeCopy = {
+  text: {
+    hint: "按介绍、材质和规格查找。",
+    placeholder: "例如：grenadilla 唇板的中级长笛",
+  },
+  visual: {
+    hint: "按外观描述查找，例如颜色和造型。",
+    placeholder: "例如：银色长笛",
+  },
+  image: {
+    hint: "上传一张图，找外观相近的商品。",
+    placeholder: "",
+  },
+};
+
 function setMode(mode) {
   state.mode = mode;
   document.body.dataset.mode = mode;
   document.querySelectorAll(".mode").forEach((button) => {
     button.classList.toggle("is-active", button.dataset.mode === mode);
   });
-  queryInput.placeholder =
-    mode === "visual" ? "例如：银色长笛" : "例如：grenadilla 唇板的中级长笛";
+  const copy = modeCopy[mode] || modeCopy.text;
+  document.querySelector("#mode-hint").textContent = copy.hint;
+  queryInput.placeholder = copy.placeholder;
 }
 
 function useFile(file) {
@@ -79,7 +95,7 @@ async function search() {
     const payload =
       state.mode === "image" ? await searchByImage() : await searchByText();
     renderProducts(payload.products);
-    resultMeta.textContent = `${payload.products.length} 件商品`;
+    resultMeta.textContent = `搜索到 ${payload.products.length} 件`;
   } catch (error) {
     resultMeta.textContent = "";
     showError("search-error", error.message);
@@ -134,11 +150,8 @@ async function sendChat() {
     state.history.push({ role: "user", content: message });
     state.history.push({ role: "assistant", content: result.answer });
     appendBubble("assistant", result.answer);
+    appendChatProducts(result.products);
     appendChunks(result.chunks);
-    if (result.products.length) {
-      renderProducts(result.products);
-      resultMeta.textContent = `对话匹配 ${result.products.length} 件商品`;
-    }
   } catch (error) {
     showError("chat-error", error.message);
   }
@@ -160,8 +173,12 @@ function currentFilters() {
 
 function renderProducts(products) {
   results.replaceChildren();
+  results.classList.toggle("is-empty", !products.length);
   if (!products.length) {
-    results.textContent = "没有匹配的商品。";
+    const empty = document.createElement("p");
+    empty.className = "empty";
+    empty.textContent = "没有匹配的商品。可以换个描述，或放宽品牌和价格。";
+    results.append(empty);
     return;
   }
   for (const product of products) {
@@ -176,8 +193,8 @@ function renderProducts(products) {
       <p class="brand">${escapeHtml(product.brand || "未标注品牌")}</p>
       <h3>${escapeHtml(product.title)}</h3>
       <p class="price">${formatPrice(product.sale_price)} · ${product.in_stock ? "有货" : "无货"}</p>
-      <p class="meta">${escapeHtml([product.category, product.style].filter(Boolean).join(" · "))}</p>
-      <p class="meta">相似度 ${product.score ?? "—"}</p>
+      <p class="meta">${escapeHtml([product.part_number, product.category].filter(Boolean).join(" · "))}</p>
+      ${product.score == null ? "" : `<p class="meta">相似度 ${product.score}</p>`}
     `;
     if (product.sku_url) {
       const link = document.createElement("a");
@@ -190,6 +207,34 @@ function renderProducts(products) {
     card.append(image, body);
     results.append(card);
   }
+}
+
+function appendChatProducts(products) {
+  if (!products || !products.length) return;
+  const box = document.createElement("div");
+  box.className = "chat-products";
+  for (const product of products) {
+    const item = document.createElement(product.sku_url ? "a" : "div");
+    item.className = "chat-product";
+    if (product.sku_url) {
+      item.href = productUrl(product.sku_url);
+      item.target = "_blank";
+      item.rel = "noreferrer";
+    }
+    const image = document.createElement("img");
+    image.alt = "";
+    image.src = product.thumb_url || product.image_url;
+    const body = document.createElement("div");
+    body.innerHTML = `
+      <p class="brand">${escapeHtml(product.brand || "未标注品牌")}</p>
+      <h3>${escapeHtml(product.title)}</h3>
+      <p class="meta">${escapeHtml([product.part_number, formatPrice(product.sale_price), product.in_stock ? "有货" : "无货"].filter(Boolean).join(" · "))}</p>
+    `;
+    item.append(image, body);
+    box.append(item);
+  }
+  thread.append(box);
+  thread.scrollTop = thread.scrollHeight;
 }
 
 function appendChunks(chunks) {
