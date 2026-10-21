@@ -31,6 +31,11 @@ class Settings:
     image_dim: int = 512
     chunk_size: int = int(os.getenv("CHUNK_SIZE", "800"))
     chunk_overlap: int = int(os.getenv("CHUNK_OVERLAP", "120"))
+    redis_url: str = os.getenv(
+        "REDIS_URL",
+        f"redis://:{os.getenv('REDIS_PASSWORD', 'change-me-local-dev')}@localhost:6379/0",
+    )
+    chat_session_ttl: int = int(os.getenv("CHAT_SESSION_TTL", "86400"))
 
 
 settings = Settings()

@@ -6,15 +6,20 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 
-from app.api.deps import get_store
+from app.api.deps import get_writer
+from app.api.middleware import RequestIdMiddleware
 from app.api.routes import chat, health, products, search
+from app.core.logging import configure
+from app.services.chat.sessions import get_session_store
 
 WEB_DIR = Path(__file__).resolve().parents[1] / "web"
 
 
 @asynccontextmanager
 async def lifespan(_app: FastAPI):
-    get_store().ensure_collection()
+    configure()
+    get_session_store()
+    get_writer().ensure_collection()
     yield
 
 
@@ -24,7 +29,9 @@ app.add_middleware(
     allow_origins=["*"],
     allow_methods=["*"],
     allow_headers=["*"],
+    expose_headers=["X-Request-Id"],
 )
+app.add_middleware(RequestIdMiddleware)
 app.include_router(health.router)
 app.include_router(products.router)
 app.include_router(search.router)

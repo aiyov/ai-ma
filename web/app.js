@@ -1,6 +1,6 @@
 const state = {
   mode: "text",
-  history: [],
+  sessionId: sessionStorage.getItem("chatSessionId") || "",
   file: null,
 };
 
@@ -142,13 +142,15 @@ async function sendChat() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         message,
-        history: state.history,
+        session_id: state.sessionId || null,
         limit: 4,
         filters: currentFilters(),
       }),
     });
-    state.history.push({ role: "user", content: message });
-    state.history.push({ role: "assistant", content: result.answer });
+    if (result.session_id) {
+      state.sessionId = result.session_id;
+      sessionStorage.setItem("chatSessionId", result.session_id);
+    }
     appendBubble("assistant", result.answer);
     appendChatProducts(result.products);
     appendChunks(result.chunks);

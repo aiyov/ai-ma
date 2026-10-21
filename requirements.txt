@@ -9,3 +9,4 @@ langchain-openai>=0.3
 langchain-text-splitters>=0.3
 python-dotenv>=1.0
 pillow>=11.0
+redis>=5.0

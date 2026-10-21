@@ -21,10 +21,12 @@ class ChatResult(BaseModel):
     products: list[ProductHit]
     chunks: list[RetrievedChunk] = Field(default_factory=list)
     llm: str | None = None
+    session_id: str = ""
 
 
 class ChatRequest(BaseModel):
     message: str = Field(min_length=1)
+    session_id: str | None = None
     history: list[ChatTurn] = Field(default_factory=list)
     limit: int = Field(default=4, ge=1, le=8)
     filters: ProductFilter = Field(default_factory=ProductFilter)
