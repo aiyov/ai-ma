@@ -55,3 +55,15 @@ class ImportResponse(BaseModel):
     chunks: int
     count: int
     failed_images: list[ImageFailure] = Field(default_factory=list)
+
+
+class SyncResponse(BaseModel):
+    scanned: int
+    changed: int
+    upserted: int
+    skipped: int
+    chunks: int
+    count: int
+    watermark: str | None = None
+    failed_images: list[ImageFailure] = Field(default_factory=list)
+    full: bool = False

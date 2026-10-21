@@ -14,7 +14,10 @@ HEADERS = {"User-Agent": "ai-ma-importer/1.0"}
 
 
 def import_file(path: Path, store: ProductStore | None = None) -> ImportResponse:
-    products = load_products(path)
+    return import_products(load_products(path), store)
+
+
+def import_products(products: list[Product], store: ProductStore | None = None) -> ImportResponse:
     image_paths, failures = download_images(products)
     target = store or ProductStore()
     chunks = target.upsert(products, image_paths)

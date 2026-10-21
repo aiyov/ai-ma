@@ -36,6 +36,9 @@ class Settings:
         f"redis://:{os.getenv('REDIS_PASSWORD', 'change-me-local-dev')}@localhost:6379/0",
     )
     chat_session_ttl: int = int(os.getenv("CHAT_SESSION_TTL", "86400"))
+    sync_state_path: Path = Path(os.getenv("SYNC_STATE_PATH", ".cache/sync_state.sqlite"))
+    sync_source: str = os.getenv("SYNC_SOURCE", "file")
+    sync_interval_seconds: int = int(os.getenv("SYNC_INTERVAL_SECONDS", "3600"))
 
 
 settings = Settings()
