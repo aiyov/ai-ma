@@ -8,6 +8,8 @@
 
 name: Docker image
 
+# GitHub cannot filter "tags on main" in `on:` — tags are not branch-scoped.
+# Trigger on v* tags, then fail unless the tagged commit is reachable from main.
 on:
   push:
     tags:
@@ -26,14 +28,16 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Ensure tag points at main
+      - name: Require tagged commit to be on main
         run: |
           set -euo pipefail
-          git fetch origin main
-          if ! git merge-base --is-ancestor "$GITHUB_SHA" origin/main; then
-            echo "Refusing to build: tag $GITHUB_REF_NAME is not on origin/main"
+          git fetch origin main --prune
+          # Tagged SHA must be an ancestor of origin/main (i.e. that commit is on main).
+          if ! git merge-base --is-ancestor "$GITHUB_SHA" refs/remotes/origin/main; then
+            echo "::error::Tag ${GITHUB_REF_NAME} (${GITHUB_SHA}) is not on origin/main. Only tag commits that are already on main."
             exit 1
           fi
+          echo "OK: ${GITHUB_REF_NAME} -> ${GITHUB_SHA} is on origin/main"
 
       - name: Image name
         id: meta
