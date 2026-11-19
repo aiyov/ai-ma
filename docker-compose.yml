@@ -1,12 +1,38 @@
-# AI sidecar for an existing app. Python / LangChain stays on the host.
+# AI sidecar for an existing app.
 #
 #   docker compose up -d                          # Qdrant + Redis
+#   docker compose --profile api up -d --build    # + FastAPI app image
 #   docker compose --profile llm up -d            # + local LLM (CPU only in Docker Desktop on Mac)
 #   docker compose --profile storage up -d        # + image object storage, if the old app has none
 
 name: ai-ma
 
 services:
+  app:
+    profiles: ["api"]
+    build: .
+    image: ai-ma:local
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      QDRANT_URL: http://qdrant:6333
+      REDIS_URL: redis://:${REDIS_PASSWORD:-change-me-local-dev}@redis:6379/0
+      MODEL_CACHE: /app/.cache/fastembed
+      IMAGE_CACHE: /app/.cache/images
+      SYNC_STATE_PATH: /app/.cache/sync_state.sqlite
+      DATA_PATH: /app/data.json
+    volumes:
+      - app_cache:/app/.cache
+      - ./data.json:/app/data.json:ro
+    depends_on:
+      qdrant:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
   qdrant:
     image: qdrant/qdrant:v1.19.2
     restart: unless-stopped
@@ -98,6 +124,7 @@ services:
     restart: "no"
 
 volumes:
+  app_cache:
   qdrant_data:
   redis_data:
   ollama_data:
